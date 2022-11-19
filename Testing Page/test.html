@@ -28,7 +28,15 @@
         async function main() {
             document.getElementById("dis").innerHTML = "Sending POST Request to " + url;
             for (var i = 0; i < 1; i++) {
-                var d = {utc: (Math.floor(Math.random()*1000)).toString(), temp: (Math.floor(Math.random()*1000)).toString(), hum: (Math.floor(Math.random()*1000)).toString(), pres: (Math.floor(Math.random()*1000)).toString(), rain: (Math.floor(Math.random()*1000)).toString(), ws: (Math.floor(Math.random()*1000)).toString(), wd: (Math.floor(Math.random()*1000)).toString()}
+                var d = {
+                    utc: (Math.floor(Math.random()*1000)).toString(), 
+                    temp: (Math.floor(Math.random()*1000)).toString(), 
+                    hum: (Math.floor(Math.random()*1000)).toString(), 
+                    pres: (Math.floor(Math.random()*1000)).toString(), 
+                    rain: (Math.floor(Math.random()*1000)).toString(), 
+                    ws: (Math.floor(Math.random()*1000)).toString(), 
+                    wd: (Math.floor(Math.random()*1000)).toString()
+                }
                 await send(JSON.stringify(d));
                 console.log(d);
             }
