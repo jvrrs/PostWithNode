@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Node Server</title>
+</head>
+<body>
+    <script>
+        console.log("test")
+        async function send(data) {
+            var dat = await fetch("http://localhost:4000/data", {
+                method: "POST",
+                body: data,
+                mode:"no-cors"
+            });
+            var datr = await dat.text();
+
+            console.log(datr);
+        }
+
+        async function main() {
+            for (var i = 0; i < 50; i++) {
+                var d = (Math.floor(Math.random()*1000)).toString();
+                await send(d);
+                console.log(d);
+            }
+        }
+
+        main();
+
+    </script>
+</body>
+</html>
