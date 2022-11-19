@@ -26,12 +26,13 @@
         }
 
         async function main() {
+            document.getElementById("dis").innerHTML = "Sending POST Request to " + url;
             for (var i = 0; i < 50; i++) {
                 var d = (Math.floor(Math.random()*1000)).toString();
                 await send(d);
                 console.log(d);
             }
-            document.getElementById("dis").innerHTML = "POST Request sent to " + url;
+            document.getElementById("dis").innerHTML = "Compete";
         }
 
         main();

@@ -1,6 +1,6 @@
 const express = require("express"); // Use "npm install express" if the module is not available
 const app = express();
-const port = 4000;
+const port = 80;
 
 const fs = require("fs");
 
