@@ -1,22 +1,23 @@
-const express = require("express");
+const express = require("express"); // Use "npm install express" if the module is not available
 const app = express();
 const port = 4000;
 
 const fs = require("fs");
 
 app.use(express.urlencoded({extended: false}));
-app.use(express.text());
+app.use(express.text()); // This is required as the data that is sent is in text format
 
 app.get("/", async (req, res) => {
-    res.send("This is working");
+    res.send("The Server is Online"); // Just to see if the server is online
 });
 
+// Accepting POST request to url - "/data" and saving the data in "data.txt" file in the "data" folder
 app.post("/data", async (req, res) => {
     console.log(req.body);
-    fs.appendFileSync("data\\data.txt", req.body + "\n");
+    fs.appendFileSync("data\\data.txt", req.body + "\n"); // Change the "data\\data.txt" to the location where the data should be stored
     res.send("Done")
 })
 
 app.listen(port, () => {
-    console.log(`Listening at http://localhost:${port}`);
+    console.log(`Listening on port ${port}`);
 })

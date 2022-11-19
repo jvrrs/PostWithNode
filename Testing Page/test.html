@@ -1,3 +1,6 @@
+<!-- 
+    This is a Sample HTML file simulating a POST request 
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +10,12 @@
     <title>Testing Node Server</title>
 </head>
 <body>
+    <h1 id="dis"></h1>
     <script>
-        console.log("test")
+        const domain = "http://localhost:4000"; // Change this to the server's domain for testing, IMPORTANT!
+        const url = domain + "/data";
         async function send(data) {
-            var dat = await fetch("http://localhost:4000/data", {
+            var dat = await fetch(url, {
                 method: "POST",
                 body: data,
                 mode:"no-cors"
@@ -26,6 +31,7 @@
                 await send(d);
                 console.log(d);
             }
+            document.getElementById("dis").innerHTML = "POST Request sent to " + url;
         }
 
         main();
