@@ -1,0 +1,2 @@
+For storing in CSV format, the header row must be defined and it must end with a new line "\n".
+The "data_csv_template.csv" file is a template that shows how to setup a csv file before adding data to it.
